@@ -1,0 +1,776 @@
+homeassistant:
+  name: Sampaio's House
+  latitude: xxxxxxxxxx
+  longitude: xxxxxxxxxx
+  elevation: 37
+  unit_system: metric
+  time_zone: Europe/Lisbon
+  customize: !include customize.yaml
+frontend:
+config:
+http:
+  base_url: https://pjosevsan.duckdns.org
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+  api_password: xxxxxxxxxxx
+updater:
+discovery:
+conversation:
+history:
+logbook:
+map:
+sun:
+tts:
+  - platform: google
+cloud:
+mqtt:
+  broker: 192.168.1.xxx
+
+#Switch ##################################################################
+switch:
+#Cilindro
+  - platform: mqtt
+    name: "Cilindro"
+    state_topic: "stat/POW_Cilindro/POWER"
+    command_topic: "cmnd/POW_Cilindro/POWER"
+    availability_topic: "tele/POW_Cilindro/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline" 
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+#Toalheiro
+  - platform: mqtt
+    name: "Toalheiro"
+    state_topic: "stat/POW_Toalheiro/POWER"
+    command_topic: "cmnd/POW_Toalheiro/POWER"
+    availability_topic: "tele/POW_Toalheiro/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"    
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+#Cobertor Pedro
+  - platform: mqtt
+    name: "Cobertor Pedro"
+    state_topic: "stat/POW_C_Pedro/POWER"
+    command_topic: "cmnd/POW_C_Pedro/POWER"
+    availability_topic: "tele/POW_C_Pedro/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"   
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+#Cobertor Ines
+  - platform: mqtt
+    name: "Cobertor Ines"
+    state_topic: "stat/POW_C_Ines/POWER"
+    command_topic: "cmnd/POW_C_Ines/POWER"
+    availability_topic: "tele/POW_C_Ines/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+#Cobertor Sara
+  - platform: mqtt
+    name: "Cobertor Sara"
+    state_topic: "stat/POW_C_Sara/POWER"
+    command_topic: "cmnd/POW_C_Sara/POWER"
+    availability_topic: "tele/POW_C_Sara/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+
+#Light ###################################################################
+light:
+#WC
+  - platform: mqtt
+    name: "Luz WC Teto"
+    state_topic: "stat/BH_WC/POWER2"
+    command_topic: "cmnd/BH_WC/POWER2"
+    payload_on: "ON"
+    payload_off: "OFF"
+    optimistic: false
+    retain: true
+  - platform: mqtt
+    name: "Luz WC Sanca"
+    state_topic: "stat/BH_WC/POWER1"
+    command_topic: "cmnd/BH_WC/POWER1"
+    payload_on: "ON"
+    payload_off: "OFF"
+    optimistic: false
+    retain: true
+#Pedro
+  - platform: mqtt
+    name: "Luz Pedro"
+    state_topic: "stat/T_I_Pedro/POWER"
+    command_topic: "cmnd/T_I_Pedro/POWER"
+    availability_topic: "tele/T_I_Pedro/LWT"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    retain: true
+#Sara
+  - platform: mqtt
+    name: "Luz Sara"
+    state_topic: "stat/T_I_Sara/POWER"
+    command_topic: "cmnd/T_I_Sara/POWER"
+    availability_topic: "tele/T_I_Sara/LWT"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    retain: true
+#Sala
+  - platform: mqtt
+    name: "Luz Sala Sanca"
+    state_topic: "stat/BH_Sala/POWER1"
+    command_topic: "cmnd/BH_Sala/POWER1"
+    payload_on: "ON"
+    payload_off: "OFF"
+    optimistic: false
+    retain: true
+  - platform: mqtt
+    name: "Luz Sala Teto"
+    state_topic: "stat/BH_Sala/POWER2"
+    command_topic: "cmnd/BH_Sala/POWER2"
+    payload_on: "ON"
+    payload_off: "OFF"
+    optimistic: false
+    retain: true
+
+#Input Number#############################################################
+input_number:
+#Cilindro ################################################################
+  h_lcil:
+    name: Horas
+    icon: mdi:timer
+    initial: 0
+    min: 0
+    max: 23
+    step: 1
+  m_lcil:
+    icon: mdi:timer
+    name: Minutos
+    initial: 0
+    min: 0
+    max: 59
+    step: 1
+  h_dcil:
+    name: Horas
+    icon: mdi:timer
+    initial: 0
+    min: 0
+    max: 23
+    step: 1
+  m_dcil:
+    icon: mdi:timer
+    name: Minutos
+    initial: 0
+    min: 0
+    max: 59
+    step: 1
+
+#Toalheiro ###############################################################
+  h_ltoa:
+    name: Horas
+    icon: mdi:timer
+    initial: 0
+    min: 0
+    max: 23
+    step: 1
+  m_ltoa:
+    icon: mdi:timer
+    name: Minutos
+    initial: 0
+    min: 0
+    max: 59
+    step: 1
+  h_dtoa:
+    name: Horas
+    icon: mdi:timer
+    initial: 0
+    min: 0
+    max: 23
+    step: 1
+  m_dtoa:
+    icon: mdi:timer
+    name: Minutos
+    initial: 0
+    min: 0
+    max: 59
+    step: 1
+
+#Cobertor Pedro ##########################################################
+  h_lcp:
+    name: Horas
+    icon: mdi:timer
+    initial: 0
+    min: 0
+    max: 23
+    step: 1
+  m_lcp:
+    icon: mdi:timer
+    name: Minutos
+    initial: 0
+    min: 0
+    max: 59
+    step: 1
+  h_dcp:
+    name: Horas
+    icon: mdi:timer
+    initial: 0
+    min: 0
+    max: 23
+    step: 1
+  m_dcp:
+    icon: mdi:timer
+    name: Minutos
+    initial: 0
+    min: 0
+    max: 59
+    step: 1
+
+#Cobertor Inês ###########################################################
+  h_lci:
+    name: Horas
+    icon: mdi:timer
+    initial: 0
+    min: 0
+    max: 23
+    step: 1
+  m_lci:
+    icon: mdi:timer
+    name: Minutos
+    initial: 0
+    min: 0
+    max: 59
+    step: 1
+  h_dci:
+    name: Horas
+    icon: mdi:timer
+    initial: 0
+    min: 0
+    max: 23
+    step: 1
+  m_dci:
+    icon: mdi:timer
+    name: Minutos
+    initial: 0
+    min: 0
+    max: 59
+    step: 1
+
+#Cobertor Sara ###########################################################
+  h_lcs:
+    name: Horas
+    icon: mdi:timer
+    initial: 0
+    min: 0
+    max: 23
+    step: 1
+  m_lcs:
+    icon: mdi:timer
+    name: Minutos
+    initial: 0
+    min: 0
+    max: 59
+    step: 1
+  h_dcs:
+    name: Horas
+    icon: mdi:timer
+    initial: 0
+    min: 0
+    max: 23
+    step: 1
+  m_dcs:
+    icon: mdi:timer
+    name: Minutos
+    initial: 0
+    min: 0
+    max: 59
+    step: 1
+
+#Sensor ##################################################################
+sensor:
+#Cilindro ################################################################
+  - platform: template
+    sensors:
+      alarm_time_lcil:
+        value_template: '{% if states.input_number.h_lcil.state|round(0)|string|length == 1 %}0{% endif %}{{ states.input_number.h_lcil.state|round(0)|string }}:{% if states.input_number.m_lcil.state|round(0)|string|length == 1 %}0{% endif %}{{ states.input_number.m_lcil.state|round(0)|string }}'
+        entity_id:
+          - input_number.m_lcil
+          - input_number.h_lcil
+  - platform: template
+    sensors:
+      alarm_time_dcil:
+        value_template: '{% if states.input_number.h_dcil.state|round(0)|string|length == 1 %}0{% endif %}{{ states.input_number.h_dcil.state|round(0)|string }}:{% if states.input_number.m_dcil.state|round(0)|string|length == 1 %}0{% endif %}{{ states.input_number.m_dcil.state|round(0)|string }}'
+        entity_id:
+          - input_number.m_dcil
+          - input_number.h_dcil
+#Cilindro Wats #
+  - platform: mqtt
+    name: "Cilindro Wats"
+    state_topic: "tele/POW_Cilindro/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Power"] }}'
+    unit_of_measurement: "W"
+#Cilindro Amperes #
+  - platform: mqtt
+    name: "Cilindro Amperes"
+    state_topic: "tele/POW_Cilindro/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Current"] }}'
+    unit_of_measurement: "A"
+#Cilindro Voltagem #
+  - platform: mqtt
+    name: "Cilindro Voltagem"
+    state_topic: "tele/POW_Cilindro/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+    unit_of_measurement: "V"
+#Cilindro Hoje kWh #
+  - platform: mqtt
+    name: "Cilindro Hoje"
+    state_topic: "tele/POW_Cilindro/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Today"] }}'
+    unit_of_measurement: "kWh"
+#Cilindro Hoje € #
+  - platform: mqtt
+    name: "Cilindro Hoje (€)"
+    state_topic: "tele/POW_Cilindro/SENSOR"
+    value_template: >-
+      {{states.sensor.cilindro_hoje.state | multiply(0.1603) | round(2)}}
+    unit_of_measurement: "€"
+#Cilindro Ontem kWh #
+  - platform: mqtt
+    name: "Cilindro Ontem"
+    state_topic: "tele/POW_Cilindro/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+    unit_of_measurement: "kWh"  
+#Cilindro Ontem € #
+  - platform: mqtt
+    name: "Cilindro Ontem (€)"
+    state_topic: "tele/POW_Cilindro/SENSOR"
+    value_template: >-
+      {{states.sensor.cilindro_ontem.state | multiply(0.1603) | round(2)}}
+    unit_of_measurement: "€"
+#Cilindro Total kWh #
+  - platform: mqtt
+    name: "Cilindro Total"
+    state_topic: "tele/POW_Cilindro/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Total"] }}'
+    unit_of_measurement: "kWh"
+#Cilindro Total € #
+  - platform: mqtt
+    name: "Cilindro Total (€)"
+    state_topic: "tele/POW_Cilindro/SENSOR"
+    value_template: >-
+      {{states.sensor.cilindro_total.state | multiply(0.1603) | round(2)}}
+    unit_of_measurement: "€"
+
+#Toalheiro ###############################################################
+  - platform: template
+    sensors:
+      alarm_time_ltoa:
+        value_template: '{% if states.input_number.h_ltoa.state|round(0)|string|length == 1 %}0{% endif %}{{ states.input_number.h_ltoa.state|round(0)|string }}:{% if states.input_number.m_ltoa.state|round(0)|string|length == 1 %}0{% endif %}{{ states.input_number.m_ltoa.state|round(0)|string }}'
+        entity_id:
+          - input_number.m_ltoa
+          - input_number.h_ltoa
+  - platform: template
+    sensors:
+      alarm_time_dtoa:
+        value_template: '{% if states.input_number.h_dtoa.state|round(0)|string|length == 1 %}0{% endif %}{{ states.input_number.h_dtoa.state|round(0)|string }}:{% if states.input_number.m_dtoa.state|round(0)|string|length == 1 %}0{% endif %}{{ states.input_number.m_dtoa.state|round(0)|string }}'
+        entity_id:
+          - input_number.m_dtoa
+          - input_number.h_dtoa
+#Toalheiro Wats #
+  - platform: mqtt
+    name: "Toalheiro Wats"
+    state_topic: "tele/POW_Toalheiro/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Power"] }}'
+    unit_of_measurement: "W"
+#Toalheiro Amperes #
+  - platform: mqtt
+    name: "Toalheiro Amperes"
+    state_topic: "tele/POW_Toalheiro/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Current"] }}'
+    unit_of_measurement: "A"
+#Toalheiro Voltagem #
+  - platform: mqtt
+    name: "Toalheiro Voltagem"
+    state_topic: "tele/POW_Toalheiro/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+    unit_of_measurement: "V"
+#Toalheiro Hoje kWh #
+  - platform: mqtt
+    name: "Toalheiro Hoje"
+    state_topic: "tele/POW_Toalheiro/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Today"] }}'
+    unit_of_measurement: "kWh"
+#Toalheiro Hoje € #
+  - platform: mqtt
+    name: "Toalheiro Hoje (€)"
+    state_topic: "tele/POW_Toalheiro/SENSOR"
+    value_template: >-
+      {{ states.sensor.toalheiro_hoje.state  | multiply(0.1603) | round(2) }}
+    unit_of_measurement: "€"
+#Toalheiro Ontem kWh #
+  - platform: mqtt
+    name: "Toalheiro Ontem"
+    state_topic: "tele/POW_Toalheiro/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+    unit_of_measurement: "kWh" 
+#Toalheiro Ontem € #
+  - platform: mqtt
+    name: "Toalheiro Ontem (€)"
+    state_topic: "tele/POW_Toalheiro/SENSOR"
+    value_template: >-
+      {{ states.sensor.toalheiro_ontem.state  | multiply(0.1603) | round(2) }}
+    unit_of_measurement: "€"
+#Toalheiro Total kWh #
+  - platform: mqtt
+    name: "Toalheiro Total"
+    state_topic: "tele/POW_Toalheiro/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Total"] }}'
+    unit_of_measurement: "kWh"  
+#Toalheiro Total € #
+  - platform: mqtt
+    name: "Toalheiro Total (€)"
+    state_topic: "tele/POW_Toalheiro/SENSOR"
+    value_template: >-
+      {{ states.sensor.toalheiro_total.state  | multiply(0.1603) | round(2) }}
+    unit_of_measurement: "€"
+
+#Cobertor Pedro ##########################################################
+  - platform: template
+    sensors:
+      alarm_time_lcp:
+        value_template: '{% if states.input_number.h_lcp.state|round(0)|string|length == 1 %}0{% endif %}{{ states.input_number.h_lcp.state|round(0)|string }}:{% if states.input_number.m_lcp.state|round(0)|string|length == 1 %}0{% endif %}{{ states.input_number.m_lcp.state|round(0)|string }}'
+        entity_id:
+          - input_number.m_lcp
+          - input_number.h_lcp
+  - platform: template
+    sensors:
+      alarm_time_dcp:
+        value_template: '{% if states.input_number.h_dcp.state|round(0)|string|length == 1 %}0{% endif %}{{ states.input_number.h_dcp.state|round(0)|string }}:{% if states.input_number.m_dcp.state|round(0)|string|length == 1 %}0{% endif %}{{ states.input_number.m_dcp.state|round(0)|string }}'
+        entity_id:
+          - input_number.m_dcp
+          - input_number.h_dcp
+#Cobertor Pedro Wats #
+  - platform: mqtt
+    name: "Cobertor Pedro Wats"
+    state_topic: "tele/POW_C_Pedro/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Power"] }}'
+    unit_of_measurement: "W"
+#Cobertor Pedro Amperes #
+  - platform: mqtt
+    name: "Cobertor Pedro Amperes"
+    state_topic: "tele/POW_C_Pedro/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Current"] }}'
+    unit_of_measurement: "A"
+#Cobertor Pedro Voltagem #
+  - platform: mqtt
+    name: "Cobertor Pedro Voltagem"
+    state_topic: "tele/POW_C_Pedro/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+    unit_of_measurement: "V"
+#Cobertor Pedro Hoje kWh #
+  - platform: mqtt
+    name: "Cobertor Pedro Hoje"
+    state_topic: "tele/POW_C_Pedro/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Today"] }}'
+    unit_of_measurement: "kWh"
+#Cobertor Pedro Hoje € #
+  - platform: mqtt
+    name: "Cobertor Pedro Hoje (€)"
+    state_topic: "tele/POW_C_Pedro/SENSOR"
+    value_template: >-
+      {{states.sensor.cobertor_pedro_hoje.state | multiply(0.1603) | round(2)}}
+    unit_of_measurement: "€"
+#Cobertor Pedro Ontem kWh #
+  - platform: mqtt
+    name: "Cobertor Pedro Ontem"
+    state_topic: "tele/POW_C_Pedro/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+    unit_of_measurement: "kWh"
+#Cobertor Pedro Ontem € #
+  - platform: mqtt
+    name: "Cobertor Pedro Ontem (€)"
+    state_topic: "tele/POW_C_Pedro/SENSOR"
+    value_template: >-
+      {{states.sensor.cobertor_pedro_ontem.state | multiply(0.1603) | round(2)}}
+    unit_of_measurement: "€"  
+#Cobertor Pedro Total kWs #
+  - platform: mqtt
+    name: "Cobertor Pedro Total"
+    state_topic: "tele/POW_C_Pedro/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Total"] }}'
+    unit_of_measurement: "kWh" 
+#Cobertor Pedro Total € #
+  - platform: mqtt
+    name: "Cobertor Pedro Total (€)"
+    state_topic: "tele/POW_C_Pedro/SENSOR"
+    value_template: >-
+      {{states.sensor.cobertor_pedro_total.state | multiply(0.1603) | round(2)}}
+    unit_of_measurement: "€"
+
+#Cobertor Inês ###########################################################
+  - platform: template
+    sensors:
+      alarm_time_lci:
+        value_template: '{% if states.input_number.h_lci.state|round(0)|string|length == 1 %}0{% endif %}{{ states.input_number.h_lci.state|round(0)|string }}:{% if states.input_number.m_lci.state|round(0)|string|length == 1 %}0{% endif %}{{ states.input_number.m_lci.state|round(0)|string }}'
+        entity_id:
+          - input_number.m_lci
+          - input_number.h_lci
+  - platform: template
+    sensors:
+      alarm_time_dci:
+        value_template: '{% if states.input_number.h_dci.state|round(0)|string|length == 1 %}0{% endif %}{{ states.input_number.h_dci.state|round(0)|string }}:{% if states.input_number.m_dci.state|round(0)|string|length == 1 %}0{% endif %}{{ states.input_number.m_dci.state|round(0)|string }}'
+        entity_id:
+          - input_number.m_dci
+          - input_number.h_dci
+#Cobertor Inês Wats #
+  - platform: mqtt
+    name: "Cobertor Ines Wats"
+    state_topic: "tele/POW_C_Ines/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Power"] }}'
+    unit_of_measurement: "W"
+#Cobertor Inês Amperes #
+  - platform: mqtt
+    name: "Cobertor Ines Amperes"
+    state_topic: "tele/POW_C_Ines/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Current"] }}'
+    unit_of_measurement: "A"
+#Cobertor Inês Voltagem #
+  - platform: mqtt
+    name: "Cobertor Ines Voltagem"
+    state_topic: "tele/POW_C_Ines/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+    unit_of_measurement: "V"
+#Cobertor Inês Hoje kWs #
+  - platform: mqtt
+    name: "Cobertor Ines Hoje"
+    state_topic: "tele/POW_C_Ines/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Today"] }}'
+    unit_of_measurement: "kWh"
+#Cobertor Inês Hoje € #
+  - platform: mqtt
+    name: "Cobertor Ines Hoje (€)"
+    state_topic: "tele/POW_C_Ines/SENSOR"
+    value_template: >- 
+      {{states.sensor.cobertor_ines_hoje.state | multiply(0.1603) | round(2)}}
+    unit_of_measurement: "€"
+#Cobertor Inês Ontem kWs #
+  - platform: mqtt
+    name: "Cobertor Ines Ontem"
+    state_topic: "tele/POW_C_Ines/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+    unit_of_measurement: "kWh"
+#Cobertor Inês Ontem € #
+  - platform: mqtt
+    name: "Cobertor Ines Ontem (€)"
+    state_topic: "tele/POW_C_Ines/SENSOR"
+    value_template: >-
+      {{states.sensor.cobertor_ines_ontem.state | multiply(0.1603) | round(2)}}
+    unit_of_measurement: "€"
+#Cobertor Inês Total kWs #
+  - platform: mqtt
+    name: "Cobertor Ines Total"
+    state_topic: "tele/POW_C_Ines/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Total"] }}'
+    unit_of_measurement: "kWh"
+#Cobertor Inês Total € #
+  - platform: mqtt
+    name: "Cobertor Ines Total (€)"
+    state_topic: "tele/POW_C_Ines/SENSOR"
+    value_template: >-
+      {{states.sensor.cobertor_ines_total.state | multiply(0.1603) | round(2)}}
+    unit_of_measurement: "€"
+
+#Cobertor Sara ###########################################################
+  - platform: template
+    sensors:
+      alarm_time_lcs:
+        value_template: '{% if states.input_number.h_lcs.state|round(0)|string|length == 1 %}0{% endif %}{{ states.input_number.h_lcs.state|round(0)|string }}:{% if states.input_number.m_lcs.state|round(0)|string|length == 1 %}0{% endif %}{{ states.input_number.m_lcs.state|round(0)|string }}'
+        entity_id:
+          - input_number.m_lcs
+          - input_number.h_lcs
+  - platform: template
+    sensors:
+      alarm_time_dcs:
+        value_template: '{% if states.input_number.h_dcs.state|round(0)|string|length == 1 %}0{% endif %}{{ states.input_number.h_dcs.state|round(0)|string }}:{% if states.input_number.m_dcs.state|round(0)|string|length == 1 %}0{% endif %}{{ states.input_number.m_dcs.state|round(0)|string }}'
+        entity_id:
+          - input_number.m_dcs
+          - input_number.h_dcs
+#Cobertor Sara Wats #
+  - platform: mqtt
+    name: "Cobertor Sara Wats"
+    state_topic: "tele/POW_C_Sara/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Power"] }}'
+    unit_of_measurement: "W"
+#Cobertor Sara Amperes #
+  - platform: mqtt
+    name: "Cobertor Sara Amperes"
+    state_topic: "tele/POW_C_Sara/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Current"] }}'
+    unit_of_measurement: "A"
+#Cobertor Inês Voltagem #
+  - platform: mqtt
+    name: "Cobertor Sara Voltagem"
+    state_topic: "tele/POW_C_Sara/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+    unit_of_measurement: "V"
+#Cobertor Sara Hoje wKh #
+  - platform: mqtt
+    name: "Cobertor Sara Hoje"
+    state_topic: "tele/POW_C_Sara/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Today"] }}'
+    unit_of_measurement: "kWh"
+#Cobertor Sara Hoje € #
+  - platform: mqtt
+    name: "Cobertor Sara Hoje (€)"
+    state_topic: "tele/POW_C_Sara/SENSOR"
+    value_template: >-
+      {{states.sensor.cobertor_sara_hoje.state | multiply(0.1603) | round(2)}}
+    unit_of_measurement: "€"  
+#Cobertor Sara Ontem wKh #
+  - platform: mqtt
+    name: "Cobertor Sara Ontem"
+    state_topic: "tele/POW_C_Sara/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+    unit_of_measurement: "kWh"  
+#Cobertor Sara Ontem € #
+  - platform: mqtt
+    name: "Cobertor Sara Ontem (€)"
+    state_topic: "tele/POW_C_Sara/SENSOR"
+    value_template: >-
+      {{states.sensor.cobertor_sara_ontem.state | multiply(0.1603) | round(2)}}
+    unit_of_measurement: "€"
+#Cobertor Sara Total wKh #
+  - platform: mqtt
+    name: "Cobertor Sara Total"
+    state_topic: "tele/POW_C_Sara/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Total"] }}'
+    unit_of_measurement: "kWh"
+#Cobertor Sara Total € #
+  - platform: mqtt
+    name: "Cobertor Sara Total (€)"
+    state_topic: "tele/POW_C_Sara/SENSOR"
+    value_template: >-
+      {{states.sensor.cobertor_sara_total.state | multiply(0.1603) | round(2)}}
+    unit_of_measurement: "€"
+
+#RASPBERRY PI ############################################################
+  - platform: command_line
+    name: CPU Temp
+    command: "/bin/cat /sys/class/thermal/thermal_zone0/temp"
+    unit_of_measurement: "°C"
+    value_template: '{{ value | multiply(0.001)| round(1) }}'
+  - platform: systemmonitor
+    resources:
+    - type: disk_use_percent
+      arg: /
+    - type: disk_use
+      arg: /
+    - type: disk_free
+      arg: /
+    - type: memory_use_percent
+    - type: memory_use
+    - type: memory_free
+    - type: processor_use
+    - type: network_in
+      arg: eth0
+    - type: network_out
+      arg: eth0
+
+#METEOROLOGIA ############################################################
+  - platform: yr
+    monitored_conditions:
+      - cloudiness
+      - humidity 
+      - precipitation
+      - temperature
+      - windSpeed
+      - windDirection
+
+#Escritório ##############################################################
+  - platform: dht
+    sensor: DHT22
+    pin: 4
+    temperature_offset: 0
+    humidity_offset: 0
+    monitored_conditions:
+      - temperature
+      - humidity
+
+#PZem ####################################################################
+  - platform: mqtt
+    state_topic: 'system/contagem'
+    name: 'Tensão'
+    unit_of_measurement: 'V'
+    value_template: '{{ value_json.tensao }}'
+  - platform: mqtt
+    state_topic: 'system/contagem'
+    name: 'Corrente'
+    unit_of_measurement: 'A'
+    value_template: '{{ value_json.corrente }}'
+  - platform: mqtt
+    state_topic: 'system/contagem'
+    name: 'Potência'
+    unit_of_measurement: 'W'
+    value_template: '{{ value_json.potencia }}'
+  - platform: mqtt
+    state_topic: 'system/contagem'
+    name: 'Consumo'
+    unit_of_measurement: 'Wh'
+    value_template: '{{ value_json.consumo }}'
+
+#Custos ##################################################################
+  - platform: mqtt
+    name: "Total Global (€)"
+    state_topic: "tele/POW_C_Pedro/SENSOR"
+    value_template: >-
+      {{ ((states.sensor.cobertor_pedro_total.state | float) +
+          (states.sensor.toalheiro_total.state | float) +
+          (states.sensor.cilindro_total.state | float) +
+          (states.sensor.cobertor_sara_total.state | float) +
+          (states.sensor.cobertor_ines_total.state | float)) | multiply(0.1603) | round(2) }}
+    unit_of_measurement: "€"
+
+#Câmera ##################################################################
+camera:
+  - platform: mjpeg
+    name: "c1"
+#    mjpeg_url: http://admin:Sampaio2020@192.168.1.xxx/video2.mjpg
+    mjpeg_url: http://admin:Sampaio2020@192.168.1.xxx/video/mjpg.cgi
+  - platform: mjpeg 
+    name: "c2"  
+    mjpeg_url: http://admin:Sampaio2020@192.168.1.xxx/image/jpeg.cgi
+
+#TV ######################################################################
+media_player:
+  - platform: samsungtv
+    host: 192.168.1.xxx
+
+#panel_iframe:
+#  charts:
+#    title: 'Charts'
+#    url: 'http://192.168.1.xxx:6001/ChartData'
+#    icon: 'mdi:chart-line'
+
+#GRUPOS
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+
+
+

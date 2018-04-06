@@ -1,0 +1,292 @@
+#Cilindro ################################################################
+automation.muda_alarme_lcil:
+  hidden: true
+automation.alarme_activado_lcil:
+  friendly_name: Ligar
+  icon: mdi:alarm-multiple
+sensor.alarm_time_lcil:
+  friendly_name: Hora ligar
+  icon: mdi:alarm
+automation.muda_alarme_dcil:
+  hidden: true
+automation.alarme_activado_dcil:
+  friendly_name: Desligar
+  icon: mdi:alarm-multiple
+sensor.alarm_time_dcil:
+  friendly_name: Hora desligar
+  icon: mdi:alarm
+switch.cilindro:
+  friendly_name: Cilindro
+automation.liga_cilindro:
+  friendly_name: Ligar
+input_datetime.h_ligarc:
+  friendly_name: Hora ligar
+automation.desliga_cilindro:
+  friendly_name: Desligar
+input_datetime.h_desligarc:
+  friendly_name: Hora desligar
+sensor.cilindro_total :
+  friendly_name: Cilindro total
+sensor.cilindro_total_ :
+  friendly_name: Cilindro total (€)
+sensor.cilindro_ontem :
+  friendly_name: Cilindro ontem
+sensor.cilindro_ontem_ :
+  friendly_name: Cilindro ontem (€)
+sensor.cilindro_hoje :
+  friendly_name: Cilindro hoje 
+sensor.cilindro_hoje_ :
+  friendly_name: Cilindro hoje (€)
+sensor.cilindro_wats :
+  friendly_name: Cilindro wats
+sensor.cilindro_voltagem : 
+  friendly_name: Cilindro voltagem
+sensor.cilindro_amperes :
+  friendly_name: Cilindro amperes
+
+#WC ######################################################################
+automation.muda_alarme_ltoa:
+  hidden: true
+automation.alarme_activado_ltoa:
+  friendly_name: Ligar
+  icon: mdi:alarm-multiple
+sensor.alarm_time_ltoa:
+  friendly_name: Hora ligar
+  icon: mdi:alarm
+automation.muda_alarme_dtoa:
+  hidden: true
+automation.alarme_activado_dtoa:
+  friendly_name: Desligar
+  icon: mdi:alarm-multiple
+sensor.alarm_time_dtoa:
+  friendly_name: Hora desligar
+  icon: mdi:alarm
+light.luz_wc_teto:
+  friendly_name: Luz teto
+light.luz_wc_sanca:
+  friendly_name: Luz sanca
+switch.toalheiro:
+  friendly_name: Toalheiro
+automation.liga_toalheiro:
+  friendly_name: Ligar
+input_datetime.h_ligart:
+  friendly_name: Hora ligar
+automation.desliga_toalheiro:
+  friendly_name: Desligar
+input_datetime.h_desligart:
+  friendly_name: Hora desligar
+sensor.toalheiro_total :
+  friendly_name: Toalheiro total
+sensor.toalheiro_total_ :
+  friendly_name: Toalheiro total (€)
+sensor.toalheiro_ontem :
+  friendly_name: Toalheiro ontem
+sensor.toalheiro_ontem_ :
+  friendly_name: Toalheiro ontem (€)
+sensor.toalheiro_hoje :
+  friendly_name: Toalheiro hoje
+sensor.toalheiro_hoje_ :
+  friendly_name: Toalheiro hoje (€)
+sensor.toalheiro_wats :
+  friendly_name: Toalheiro wats
+sensor.toalheiro_voltagem : 
+  friendly_name: Toalheiro voltagem
+sensor.toalheiro_amperes :
+  friendly_name: Toalheiro amperes
+
+#Cobertor Pedro ##########################################################
+automation.muda_alarme_lcp:
+  hidden: true
+automation.alarme_activado_lcp:
+  friendly_name: Ligar
+  icon: mdi:alarm-multiple
+sensor.alarm_time_lcp:
+  friendly_name: Hora ligar
+  icon: mdi:alarm
+automation.muda_alarme_dcp:
+  hidden: true
+automation.alarme_activado_dcp:
+  friendly_name: Desligar
+  icon: mdi:alarm-multiple
+sensor.alarm_time_dcp:
+  friendly_name: Hora desligar
+  icon: mdi:alarm
+light.luz_pedro:
+  friendly_name: Luz teto
+switch.cobertor_pedro:
+  friendly_name: Cobertor
+automation.liga_cobertor_pedro:
+  friendly_name: Ligar
+input_datetime.h_ligar:
+  friendly_name: Hora ligar
+automation.desliga_cobertor_pedro:
+  friendly_name: Desligar
+input_datetime.h_desligar:
+  friendly_name: Hora desligar
+sensor.cobertor_pedro_total:
+  friendly_name: C. Pedro total
+sensor.cobertor_pedro_total_:
+  friendly_name: C. Pedro total (€)
+sensor.cobertor_pedro_ontem:
+  friendly_name: C. Pedro ontem
+sensor.cobertor_pedro_ontem_:
+  friendly_name: C. Pedro ontem (€)
+sensor.cobertor_pedro_hoje:
+  friendly_name: C. Pedro hoje
+sensor.cobertor_pedro_hoje_:
+  friendly_name: C. Pedro hoje (€)
+sensor.cobertor_pedro_wats:
+  friendly_name: C. Pedro wats
+sensor.cobertor_pedro_voltagem:
+  friendly_name: C. Pedro voltagem
+sensor.cobertor_pedro_amperes:
+  friendly_name: C. Pedro amperes
+
+#Cobertor Inês ###########################################################
+automation.muda_alarme_lci:
+  hidden: true
+automation.alarme_activado_lci:
+  friendly_name: Ligar
+  icon: mdi:alarm-multiple
+sensor.alarm_time_lci:
+  friendly_name: Hora ligar
+  icon: mdi:alarm
+automation.muda_alarme_dci:
+  hidden: true
+automation.alarme_activado_dci:
+  friendly_name: Desligar
+  icon: mdi:alarm-multiple
+sensor.alarm_time_dci:
+  friendly_name: Hora desligar
+  icon: mdi:alarm
+light.luz_ines:
+  friendly_name: Luz teto
+switch.cobertor_ines:
+  friendly_name: Cobertor
+automation.liga_cobertor_ines:
+  friendly_name: Ligar
+input_datetime.h_ligari:
+  friendly_name: Hora ligar
+automation.desliga_cobertor_ines:
+  friendly_name: Desligar
+input_datetime.h_desligari:
+  friendly_name: Hora desligar
+sensor.cobertor_ines_total:
+  friendly_name: C. Inês total
+sensor.cobertor_ines_total_:
+  friendly_name: C. Inês total (€)
+sensor.cobertor_ines_ontem:
+  friendly_name: C. Inês ontem
+sensor.cobertor_ines_ontem_:
+  friendly_name: C. Inês ontem (€)
+sensor.cobertor_ines_hoje:
+  friendly_name: C. Inês hoje
+sensor.cobertor_ines_hoje_:
+  friendly_name: C. Inês hoje (€)
+sensor.cobertor_ines_wats:
+  friendly_name: C. Inês wats
+sensor.cobertor_ines_voltagem:
+  friendly_name: C. Inês voltagem
+sensor.cobertor_ines_amperes:
+  friendly_name: C. Inês amperes
+
+#Cobertor Sara ###########################################################
+automation.muda_alarme_lcs:
+  hidden: true
+automation.alarme_activado_lcs:
+  friendly_name: Ligar
+  icon: mdi:alarm-multiple
+sensor.alarm_time_lcs:
+  friendly_name: Hora ligar
+  icon: mdi:alarm
+automation.muda_alarme_dcs:
+  hidden: true
+automation.alarme_activado_dcs:
+  friendly_name: Desligar
+  icon: mdi:alarm-multiple
+sensor.alarm_time_dcs:
+  friendly_name: Hora desligar
+  icon: mdi:alarm
+light.luz_sara:
+  friendly_name: Luz teto
+switch.cobertor_sara:
+  friendly_name: Cobertor
+automation.liga_cobertor_sara:
+  friendly_name: Ligar
+input_datetime.h_ligars:
+  friendly_name: Hora ligar
+automation.desliga_cobertor_sara:
+  friendly_name: Desligar
+input_datetime.h_desligars:
+  friendly_name: Hora desligar
+sensor.cobertor_sara_total:
+  friendly_name: C. Sara total
+sensor.cobertor_sara_total_:
+  friendly_name: C. Sara total (€)
+sensor.cobertor_sara_ontem:
+  friendly_name: C. Sara ontem
+sensor.cobertor_sara_ontem_:
+  friendly_name: C. Sara ontem (€)
+sensor.cobertor_sara_hoje:
+  friendly_name: C. Sara hoje
+sensor.cobertor_sara_hoje_:
+  friendly_name: C. Sara hoje (€)
+sensor.cobertor_sara_wats:
+  friendly_name: C. Sara wats
+sensor.cobertor_sara_voltagem:
+  friendly_name: C. Sara voltagem
+sensor.cobertor_sara_amperes:
+  friendly_name: C. Sara amperes
+
+#Sala ####################################################################
+light.luz_sala_teto:
+  friendly_name: Luz teto
+light.luz_sala_sanca:
+  friendly_name: Luz sanca
+
+  
+#PI ######################################################################
+
+#Meteorologia ############################################################
+sun.sun:
+  friendly_name: Sol
+sensor.time:
+  friendly_name: Horas
+sensor.yr_cloudiness:
+  friendly_name: Nebulosidade
+sensor.yr_humidity:
+  friendly_name: Humidade
+sensor.yr_precipitation:
+  friendly_name: Precipitação
+sensor.yr_temperature:
+  friendly_name: Temperatura
+sensor.yr_wind_direction:
+  friendly_name: Direção do vento
+sensor.yr_wind_speed:
+  friendly_name: Velocidade do vento
+
+#Escritório ##############################################################
+sensor.dht_sensor_temperature:
+  friendly_name: Temperatura
+sensor.dht_sensor_humidity:
+  friendly_name: Humidade
+
+#PZem ####################################################################
+sensor.consumo:
+  friendly_name: Consumo
+sensor.corrente:
+  friendly_name: Corrente
+sensor.tensao:
+  friendly_name: Tensão
+sensor.potencia:
+  friendly_name: Potência
+
+#Custos ##################################################################
+
+#Câmera ##################################################################
+camera.c1:
+  friendly_name: Câmera Escritório
+camera.c2:
+  friendly_name: Câmera Sala 
+media_player.samsung_tv_remote:
+  friendly_name: SmartTV

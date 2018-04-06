@@ -1,0 +1,224 @@
+#Cilindro#################################################################
+  - alias: "alarme_activado_lcil"
+    initial_state: False
+    trigger:
+      - platform: time
+        minutes: '/1'
+    condition:
+      - condition: template
+        value_template: '{{ now().hour == (states.input_number.h_lcil.state  | round(0))  and  now().minute == (states.input_number.m_lcil.state  | round(0) )  }}'
+    action:
+      service: switch.turn_on
+      entity_id: switch.cilindro  
+
+  - alias: "muda_alarme_lcil"
+    trigger:
+      platform: state
+      entity_id: input_number.h_lcil, input_number.m_lcil
+    action:
+      - service: homeassistant.turn_on
+        data:
+          entity_id:
+            - automation.alarme_activado_lcil
+
+  - alias: "alarme_activado_dcil"
+    initial_state: False
+    trigger:
+      - platform: time
+        minutes: '/1'
+    condition:
+      - condition: template
+        value_template: '{{ now().hour == (states.input_number.h_dcil.state  | round(0))  and  now().minute == (states.input_number.m_dcil.state  | round(0) )  }}'
+    action:
+      service: switch.turn_off
+      entity_id: switch.cilindro  
+
+  - alias: "muda_alarme_dcil"
+    trigger:
+      platform: state
+      entity_id: input_number.h_dcil, input_number.m_dcil
+    action:
+      - service: homeassistant.turn_on
+        data:
+          entity_id:
+            - automation.alarme_activado_dcil
+
+#WC ######################################################################
+  - alias: "alarme_activado_ltoa"
+    initial_state: False
+    trigger:
+      - platform: time
+        minutes: '/1'
+    condition:
+      - condition: template
+        value_template: '{{ now().hour == (states.input_number.h_ltoa.state  | round(0))  and  now().minute == (states.input_number.m_ltoa.state  | round(0) )  }}'
+    action:
+      service: switch.turn_on
+      entity_id: switch.toalheiro  
+
+  - alias: "muda_alarme_ltoa"
+    trigger:
+      platform: state
+      entity_id: input_number.h_ltoa, input_number.m_ltoa
+    action:
+      - service: homeassistant.turn_on
+        data:
+          entity_id:
+            - automation.alarme_activado_ltoa
+
+  - alias: "alarme_activado_dtoa"
+    initial_state: False
+    trigger:
+      - platform: time
+        minutes: '/1'
+    condition:
+      - condition: template
+        value_template: '{{ now().hour == (states.input_number.h_dtoa.state  | round(0))  and  now().minute == (states.input_number.m_dtoa.state  | round(0) )  }}'
+    action:
+      service: switch.turn_off
+      entity_id: switch.toalheiro  
+
+  - alias: "muda_alarme_dtoa"
+    trigger:
+      platform: state
+      entity_id: input_number.h_dtoa, input_number.m_dtoa
+    action:
+      - service: homeassistant.turn_on
+        data:
+          entity_id:
+            - automation.alarme_activado_dtoa
+
+#Cobertot Pedro###########################################################
+  - alias: "alarme_activado_lcp"
+    initial_state: False
+    trigger:
+      - platform: time
+        minutes: '/1'
+    condition:
+      - condition: template
+        value_template: '{{ now().hour == (states.input_number.h_lcp.state  | round(0))  and  now().minute == (states.input_number.m_lcp.state  | round(0) )  }}'
+    action:
+      service: switch.turn_on
+      entity_id: switch.cobertor_pedro  
+
+  - alias: "muda_alarme_lcp"
+    trigger:
+      platform: state
+      entity_id: input_number.h_lcp, input_number.m_lcp
+    action:
+      - service: homeassistant.turn_on
+        data:
+          entity_id:
+            - automation.alarme_activado_lcp
+
+  - alias: "alarme_activado_dcp"
+    initial_state: False
+    trigger:
+      - platform: time
+        minutes: '/1'
+    condition:
+      - condition: template
+        value_template: '{{ now().hour == (states.input_number.h_dcp.state  | round(0))  and  now().minute == (states.input_number.m_dcp.state  | round(0) )  }}'
+    action:
+      service: switch.turn_off
+      entity_id: switch.cobertor_pedro  
+
+  - alias: "muda_alarme_dcp"
+    trigger:
+      platform: state
+      entity_id: input_number.h_dcp, input_number.m_dcp
+    action:
+      - service: homeassistant.turn_on
+        data:
+          entity_id:
+            - automation.alarme_activado_dcp
+
+#Cobertot Inês############################################################
+  - alias: "alarme_activado_lci"
+    initial_state: False
+    trigger:
+      - platform: time
+        minutes: '/1'
+    condition:
+      - condition: template
+        value_template: '{{ now().hour == (states.input_number.h_lci.state  | round(0))  and  now().minute == (states.input_number.m_lci.state  | round(0) )  }}'
+    action:
+      service: switch.turn_on
+      entity_id: switch.cobertor_ines  
+
+  - alias: "muda_alarme_lci"
+    trigger:
+      platform: state
+      entity_id: input_number.h_lci, input_number.m_lci
+    action:
+      - service: homeassistant.turn_on
+        data:
+          entity_id:
+            - automation.alarme_activado_lci
+
+  - alias: "alarme_activado_dci"
+    initial_state: False
+    trigger:
+      - platform: time
+        minutes: '/1'
+    condition:
+      - condition: template
+        value_template: '{{ now().hour == (states.input_number.h_dci.state  | round(0))  and  now().minute == (states.input_number.m_dci.state  | round(0) )  }}'
+    action:
+      service: switch.turn_off
+      entity_id: switch.cobertor_ines  
+
+  - alias: "muda_alarme_dci"
+    trigger:
+      platform: state
+      entity_id: input_number.h_dci, input_number.m_dci
+    action:
+      - service: homeassistant.turn_on
+        data:
+          entity_id:
+            - automation.alarme_activado_dci
+
+#Cobertor Sara############################################################
+  - alias: "alarme_activado_lcs"
+    initial_state: False
+    trigger:
+      - platform: time
+        minutes: '/1'
+    condition:
+      - condition: template
+        value_template: '{{ now().hour == (states.input_number.h_lcs.state  | round(0))  and  now().minute == (states.input_number.m_lcs.state  | round(0) )  }}'
+    action:
+      service: switch.turn_on
+      entity_id: switch.cobertor_sara  
+
+  - alias: "muda_alarme_lcs"
+    trigger:
+      platform: state
+      entity_id: input_number.h_lcs, input_number.m_lcs
+    action:
+      - service: homeassistant.turn_on
+        data:
+          entity_id:
+            - automation.alarme_activado_lcs
+
+  - alias: "alarme_activado_dcs"
+    initial_state: False
+    trigger:
+      - platform: time
+        minutes: '/1'
+    condition:
+      - condition: template
+        value_template: '{{ now().hour == (states.input_number.h_dcs.state  | round(0))  and  now().minute == (states.input_number.m_dcs.state  | round(0) )  }}'
+    action:
+      service: switch.turn_off
+      entity_id: switch.cobertor_sara  
+
+  - alias: "muda_alarme_dcs"
+    trigger:
+      platform: state
+      entity_id: input_number.h_dcs, input_number.m_dcs
+    action:
+      - service: homeassistant.turn_on
+        data:
+          entity_id:
+            - automation.alarme_activado_dcs

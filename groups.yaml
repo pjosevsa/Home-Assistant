@@ -1,0 +1,281 @@
+  default_view:
+    view: yes
+    icon: mdi:home
+    entities:
+      - group.cilindro
+      - group.wc
+      - group.pedro
+      - group.ines
+      - group.sara
+      - group.sala
+      - group.pi
+      - group.tempo
+      - group.escritorio
+      - group.pzem
+      - group.custos
+      - group.camera
+
+#Cilindro ################################################################
+  cilindro:
+    view: yes
+    entities:
+      - group.cilindrogl
+      - group.cilindrogb
+      - group.cilindroga
+  cilindrogl:
+    name: Interruptores
+    control: hidden
+    entities:
+      - switch.cilindro
+      - input_number.h_lcil
+      - input_number.m_lcil
+      - sensor.alarm_time_lcil
+      - automation.alarme_activado_lcil
+      - input_number.h_dcil
+      - input_number.m_dcil
+      - sensor.alarm_time_dcil
+      - automation.alarme_activado_dcil
+  cilindrogb:
+    name: Está a consumir
+    entities:
+      - sensor.cilindro_wats
+      - sensor.cilindro_amperes
+      - sensor.cilindro_voltagem
+  cilindroga:
+    name: Já consumiu
+    entities:
+      - sensor.cilindro_hoje
+      - sensor.cilindro_hoje_
+      - sensor.cilindro_ontem
+      - sensor.cilindro_ontem_
+      - sensor.cilindro_total
+      - sensor.cilindro_total_
+
+#WC ######################################################################
+  wc:
+    view: yes
+    entities:
+      - group.wcgl
+      - group.wcgb
+      - group.wcga
+  wcgl:
+    name: Interruptores
+    control: hidden
+    entities:
+     - light.luz_wc_teto
+     - light.luz_wc_sanca
+     - switch.toalheiro
+     - input_number.h_ltoa
+     - input_number.m_ltoa
+     - sensor.alarm_time_ltoa
+     - automation.alarme_activado_ltoa
+     - input_number.h_dtoa
+     - input_number.m_dtoa
+     - sensor.alarm_time_dtoa
+     - automation.alarme_activado_dtoa
+
+  wcgb:
+    name: Está a consumir
+    entities:
+     - sensor.toalheiro_wats
+     - sensor.toalheiro_amperes
+     - sensor.toalheiro_voltagem
+  wcga:
+    name: Já consumiu
+    entities:
+     - sensor.toalheiro_hoje
+     - sensor.toalheiro_hoje_
+     - sensor.toalheiro_ontem
+     - sensor.toalheiro_ontem_
+     - sensor.toalheiro_total
+     - sensor.toalheiro_total_
+
+#Cobertor Pedro ##########################################################
+  pedro:
+    view: yes
+    entities:
+      - group.pedrol
+      - group.pedrob
+      - group.pedroa
+  pedrol:
+    name: Interruptores
+    control: hidden
+    entities:
+      - light.luz_pedro
+      - switch.cobertor_pedro
+      - input_number.h_lcp
+      - input_number.m_lcp
+      - sensor.alarm_time_lcp
+      - automation.alarme_activado_lcp
+      - input_number.h_dcp
+      - input_number.m_dcp
+      - sensor.alarm_time_dcp
+      - automation.alarme_activado_dcp
+  pedrob:
+    name: Está a consumir
+    entities:
+      - sensor.cobertor_pedro_wats
+      - sensor.cobertor_pedro_amperes
+      - sensor.cobertor_pedro_voltagem
+  pedroa:
+    name: Já consumiu
+    entities:  
+      - sensor.cobertor_pedro_hoje
+      - sensor.cobertor_pedro_hoje_
+      - sensor.cobertor_pedro_ontem
+      - sensor.cobertor_pedro_ontem_
+      - sensor.cobertor_pedro_total
+      - sensor.cobertor_pedro_total_
+
+#Cobertor Inês ###########################################################
+  ines:
+    view: yes
+    entities:
+      - group.inesl
+      - group.inesb
+      - group.inesa
+  inesl:
+    name: Interruptores
+    control: hidden
+    entities:
+      - switch.cobertor_ines
+      - input_number.h_lci
+      - input_number.m_lci
+      - sensor.alarm_time_lci
+      - automation.alarme_activado_lci
+      - input_number.h_dci
+      - input_number.m_dci
+      - sensor.alarm_time_dci
+      - automation.alarme_activado_dci
+  inesb:
+    name: Está a consumir
+    entities:      
+      - sensor.cobertor_ines_wats
+      - sensor.cobertor_ines_amperes
+      - sensor.cobertor_ines_voltagem
+  inesa:
+    name: Já consumiu
+    entities:
+      - sensor.cobertor_ines_hoje
+      - sensor.cobertor_ines_hoje_
+      - sensor.cobertor_ines_ontem
+      - sensor.cobertor_ines_ontem_
+      - sensor.cobertor_ines_total
+      - sensor.cobertor_ines_total_
+
+#Cobertor Sara ###########################################################
+  sara:
+    view: yes
+    entities:
+      - group.saral
+      - group.sarab
+      - group.saraa
+  saral:
+    name: Interruptores
+    control: hidden
+    entities:
+      - light.luz_sara
+      - switch.cobertor_sara
+      - input_number.h_lcs
+      - input_number.m_lcs
+      - sensor.alarm_time_lcs
+      - automation.alarme_activado_lcs
+      - input_number.h_dcs
+      - input_number.m_dcs
+      - sensor.alarm_time_dcs
+      - automation.alarme_activado_dcs
+  sarab:
+    name: Está a consumir
+    entities:
+      - sensor.cobertor_sara_wats
+      - sensor.cobertor_sara_amperes
+      - sensor.cobertor_sara_voltagem
+  saraa:
+    name: Já consumiu
+    entities:
+      - sensor.cobertor_sara_hoje
+      - sensor.cobertor_sara_hoje_
+      - sensor.cobertor_sara_ontem
+      - sensor.cobertor_sara_ontem_
+      - sensor.cobertor_sara_total
+      - sensor.cobertor_sara_total_
+
+#Sala ####################################################################
+  sala:
+    view: yes
+    entities:
+      - group.salag
+  salag:
+    name: Interruptores
+    control: hidden
+    entities:
+      - light.luz_sala_teto
+      - light.luz_sala_sanca
+
+#PI ######################################################################
+  pi:
+    view: yes
+    entities:
+      - group.pig
+  pig:
+    name: Raspberry PI
+    entities:
+      - sensor.processor_use
+      - sensor.cpu_temp  
+      - sensor.disk_use_percent_
+      - sensor.disk_use_
+      - sensor.disk_free_
+      - sensor.memory_use_percent
+      - sensor.memory_use
+      - sensor.memory_free
+      - sensor.network_in_eth0
+      - sensor.network_out_eth0
+
+#Meteorologia ############################################################
+  tempo:
+    name: Meteorologia Exterior
+    entities:
+      - sun.sun
+      - sensor.time
+      - sensor.yr_cloudiness
+      - sensor.yr_humidity
+      - sensor.yr_precipitation
+      - sensor.yr_temperature
+      - sensor.yr_wind_direction
+      - sensor.yr_wind_speed
+
+#Escritório ##############################################################
+  escritorio:
+    name: Temperatura e Humidade Interior
+    entities:
+      - sensor.dht_sensor_temperature
+      - sensor.dht_sensor_humidity
+
+#PZem ####################################################################
+  pzem:
+    name: Consumo no Quadro
+    entities:
+      - sensor.consumo
+      - sensor.corrente
+      - sensor.tensao
+      - sensor.potencia
+
+#Custos ##################################################################
+  custos:
+    name: Custos
+    entities:
+      - sensor.cilindro_total_
+      - sensor.toalheiro_total_
+      - sensor.cobertor_pedro_total_
+      - sensor.cobertor_ines_total_
+      - sensor.cobertor_sara_total_
+      - sensor.total_global_
+
+#Câmera ##################################################################
+  camera:
+    name: Câmera
+    entities:
+      - camera.c1
+      - camera.c2
+      - media_player.samsung_tv_remote
+
