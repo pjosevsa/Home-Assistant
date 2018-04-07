@@ -9,7 +9,7 @@ homeassistant:
 frontend:
 config:
 http:
-  base_url: https://pjosevsan.duckdns.org
+  base_url: https://xxxxxxxxxxxxxxxxxxxxxxx
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
   api_password: xxxxxxxxxxx
