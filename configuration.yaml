@@ -748,14 +748,6 @@ sensor:
 
 #Câmera ##################################################################
 camera:
-  - platform: mjpeg
-    name: "c1"
-#    mjpeg_url: http://admin:Sampaio2020@192.168.1.xxx/video2.mjpg
-    mjpeg_url: http://admin:Sampaio2020@192.168.1.xxx/video/mjpg.cgi
-  - platform: mjpeg 
-    name: "c2"  
-    mjpeg_url: http://admin:Sampaio2020@192.168.1.xxx/image/jpeg.cgi
-
 #TV ######################################################################
 media_player:
   - platform: samsungtv
